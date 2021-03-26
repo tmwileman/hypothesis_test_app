@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div>
+    <h2>
+        The PnT Business Insights
+    </h2>
+    <h1>
+        Hypothesis Test Tool
+    </h1>
+    <p>
+        Hypothesis tests indicate whether the results of a survey or experiment are a rare outcome. They have been used
+        to determine , <a href="https://brodieclark.com/mobile-search-bar-tests-google/">the best google search bar</a>,
+        <a href="https://ourdataourselves.tacticaltech.org/posts/ab-testing/">optimize campaign messaging</a>, and <a
+            href="https://ourdataourselves.tacticaltech.org/posts/ab-testing/">observe the impact of Red Hat machine
+            learning models</a>. The PnT Business Insights Hypothesis Test Tool helps Red Hat Associates design A/B
+        experiments and analyze results.
+    </p>
+</div>
+<div>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <p>
+                        Discover how hypothesis tests can be used to identify statistically significant differences
+                        between
+                        population means or proportions.
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        Discover how hypothesis tests can be used to identify statistically significant differences
+                        between
+                        population means or proportions.
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        The The A/B Results Assessment analyzes the results of your experiment, recommends the
+                        appropriate
+                        hypothesis test and provides your results.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <form method="POST">
+                        <button name="learn" href="learn" value="learn" type="submit"
+                            class="btn btn-primary btn-lg">Learn
+                            More</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="POST">
+                        <button name="calc_samp_size" href="calc_samp_size" value="calc_samp_size" type="submit"
+                            class="btn btn-primary btn-lg">Calculate Sample Sizes</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="POST">
+                        <button name="a_b_home" href="a_b_home" value="a_b_home" type="submit"
+                            class="btn btn-primary btn-lg">Analyze
+                            Test
+                            Results</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="compare_samples">
+    <img src="../static/images/data_plot.png"></img>
+</div>
+<div class="distribution_fit">
+
+
+</div>
+
+<div class="shown">
+    <p>
+        Specifics of each distribution
+    </p>
+    <div style="display: flex">
+        <img src="../static/images/data_1_dist.png"></img>
+        <img src="../static/images/data_2_dist.png"></img>
+    </div>
+    <table style="width: 100%;">
+        <tr>
+            <td>
+                <div>
+                    <p>Mean: {{ samp_1_mean }}</p>
+                    <p>Variance: {{ samp_1_var }}</p>
+                    <p>Standard Deviation: {{ samp_1_std }}</p>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <p>Mean: {{ samp_2_mean }}</p>
+                    <p>Variance: {{ samp_2_var }}</p>
+                    <p>Standard Deviation: {{ samp_2_std }}</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="shown">
+    <p>Your answers to the A/B Results Assessment questionnaire indicated that the best test for your data is the {{
+        test
+        }}. The test results in a t-statistic of {{ t }} and a p-value of {{ p }}. {{ test_result }}</p>
+</div>
+{% endblock %}

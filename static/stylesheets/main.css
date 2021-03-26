@@ -1,0 +1,360 @@
+body {
+  margin: 0px 0px 0px 0px;
+  font-family: 'Red Hat Text', sans-serif;
+  margin-bottom: 300px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+div.hidden {
+  display: none;
+  margin-top: 40px;
+}
+
+div.shown {
+  display: block;
+  margin-top: 40px;  
+}
+
+div.container {
+  display: flex;
+  justify-content: center;
+}
+
+div.child {
+  margin: 0 auto;
+}
+
+div.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+div.compare_samples {
+  display: flex;
+  justify-content: center;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 100%;
+}
+
+div.distribution_fit{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+table {
+  margin-top: 20px;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.response {
+  width: 40%;
+}
+
+table.tests {
+  margin-top: 20px;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th {
+  text-align:center
+}
+
+table.results {
+  width: 100%; 
+  border: 0;
+}
+
+table td {
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  text-align: center; 
+  vertical-align: middle;
+}
+
+table td:first-child {
+  border-left: none;
+}
+
+table td:last-child {
+  border-right: none;
+}
+
+h1 {
+    background-color: white;
+    color: #000000;
+    font-size: 250%;
+    font-weight: 500;
+    text-align: center;
+    margin: 0;
+    padding-bottom: 1%;
+}
+
+h2 {
+    background-color: white;
+    color: #000000;
+    font-size: 150%;
+    font-weight: 500;
+    text-align: center;
+    padding-bottom: 0;
+}
+
+h3 {
+  background-color: white;
+  color: #000000;
+  font-size: 150%;
+  font-weight: 500;
+  text-align: center;
+  padding-bottom: 0;
+}
+
+p { 
+  font-size: 100%;
+  font-weight: 300;
+  text-align: center;
+  width: 70%;
+  margin: auto;
+}
+
+p.space {
+  padding-top: 20px;
+  text-align: left;
+  width: 50%;
+  font-weight: 400;
+}
+
+p.content {
+  font-weight: 300;
+  text-align: left;
+  padding: 5px;
+}
+
+ul.center {
+    font-size: 100%;
+    font-weight: 500;
+    text-align: left;
+    width: fit-content;
+    margin: auto;
+    padding-top: 20px;
+}
+
+li {
+  font-weight: 400;
+}
+
+a.button1 {
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #FFFFFF;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    background-color: #FFFFFF;
+    font-weight:300;
+    color:#000000;
+    text-align:center;
+    transition: all 0.2s;
+    }
+    a.button1:hover{
+    color:#000000;
+    background-color:#F5606D;
+    }
+    @media all and (max-width:30em){
+     a.button1{
+    display:block;
+    margin:0.4em auto;
+    }
+}
+
+  a.button1:hover{
+  color:#000000;
+  background-color:#F5606D;
+  }
+
+  @media all and (max-width:30em){
+   a.button1{
+  display:block;
+  margin:0.4em auto;
+  }
+}
+
+a:link {
+  color: #BE0000;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #5F0000;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #F5606D;
+  background-color: transparent;
+}
+
+/* Style the header with a grey background and some padding */
+.header {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  background-color: #DEDEDE;
+  padding: 20px 10px;
+}
+
+/* Style the header links */
+.header a {
+  display: inline-flex;
+  color: black;
+  padding: 5px;
+  font-size: 100%;
+  font-weight: 500;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.logo {
+  width: 160px;
+  float: left;
+}
+
+/* Float the link section to the right */
+.header-right {
+  float: right;
+  padding-top: 7px;
+}
+
+/* Change the background color on mouse-over */
+.header a:hover {
+  background-color: #F5606D;
+  color: black;
+}
+
+/* Style the active/current link*/
+.header a.active {
+  background-color: #AAAAAA;
+}
+
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: center;
+  }
+  .header-right {
+    float: none;
+  }
+}
+
+.btn-primary {
+  color: #FFFFFF;
+  background-color:#F5606D;
+  border-color: #F5606D;
+  margin-top: 25px;
+  width: 70%;
+}
+
+.btn-secondary  {
+  color: #FFFFFF;
+  background-color:#EE0000;
+  border-color: #EE0000;
+  margin-top: 25px;
+}
+
+.btn-dark  {
+  color: #FFFFFF;
+  background-color:#000000;
+  border-color: #000000;
+  margin-top: 25px;
+}
+
+.btn-primary:hover{
+  background-color:#BE0000;
+  border-color: #BE0000;
+  }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: fit-content;
+}
+
+/* Sticky footer style and color
+-------------------------------------------------- */
+footer {
+  padding-top: 50px;
+  background-color: #DEDEDE;
+  color: #FFFFFF;
+}
+
+footer a {
+  color: #000000;
+  text-decoration:none;
+}
+
+footer a:hover, footer a:focus {
+  color: #BE0000;
+  text-decoration:none;
+  border-bottom:1px dotted #999;
+}
+
+footer .form-control {
+    background-color: #FFFFFF;
+    border: none;
+    resize: none;
+    padding: 0.7em 1em;
+}
+
+
+.slidecontainer {
+  width: 70%;
+  margin: auto;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #EE0000;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #EE0000;
+  cursor: pointer;
+}

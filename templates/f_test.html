@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+<body>
+    {% block body %}
+    <div class="container">
+        <div class="child">
+            <h1>
+                hi-Square Test
+            </h1>
+            <h2>
+                Are multiple observations made for the same subject
+            </h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="child">
+            <form method="POST">
+                <button href="f_test_repeated_measures" type="submit" class="btn-primary btn-lg"
+                    name="f_test_repeated_measures" value="f_test_repeated_measures">Yes, f test repeated
+                    measures</button>
+                <button href="f_test_single_measures" type="submit" class="btn-primary btn-lg"
+                    name="f_test_single_measures" value="f_test_single_measures">No, f test single measures</button>
+            </form>
+        </div>
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2 style="padding-top: 20px;">
+    Hypothesis Testing
+</h2>
+<div class="center">
+    <img src="../static/images/t-test-ex.png" style="width:500px;"></img>
+</div>
+<p class="space">
+    Put simply, hypothesis testing indicates if a difference between two samples is true or not. This is done by
+    assessesing the plausibility of two mutually exclusive and collectively exhaustive theories (known as the null and
+    alternative hypothesis) to make a conclusions about a population. If the liklihood of
+    observing the difference is rare enough (typically &#60 5&#37 of the time) we conclude that the two samples are
+    taken from two different populations.
+</p>
+<p class="space">
+    Consider an example in which we want to determine which button results in more clicks.
+</p>
+<div class="container">
+    <div class="child">
+        <form method="POST">
+            <button class="btn-secondary btn-lg">Click Here</button>
+            <button class="btn-dark btn-lg">Click Here</button>
+        </form>
+    </div>
+</div>
+<h2 style="padding-top: 20px;">Experiment Design</h2>
+<p class="space">
+    Our first task is to design the experiment. This requires us to balance the following parameters:
+<ul class="center">
+    <li>
+        <b>Effect</b> - How large or small of a difference between populations we would like to detect
+    </li>
+    <li>
+        <b>Power</b> - The likelihood of correctly rejecting a null hypothesis
+    </li>
+    <li>
+        <b>Significance</b> - The probability of incorrectly rejecting a null hypothesis
+    </li>
+</ul>
+<P class="space">
+    How we balance these three parameters determines our sample size. In
+    an ideal world, we would select a low effect (&#60 0.1), while also setting our power and significance to fairly
+    stringent values (0.90 and 0.05 respectively). These parameters enable us to determine if there is a small
+    difference between how often the buttons are clicked. However, detecting small differences between populations while
+    maintaining stringent power and significance parameters requires large sample sizes. It is also important to
+    consider that larger sample size typically result in longer experiments. Estimating the approximate time to complete
+    the experiment can be done by dividing the sample size by the expected observations over a given period of time.
+</P>
+<p class="space">
+    For the purpose of our example, we would like to detect a 5% difference between two populations, accept a 10% chance
+    of
+    failing to reject a null hypothesis when we should have and a 5% chance of rejecting the null hypothesis when we
+    should not have. These stipulations result in an experiment with an effect of 5%, a Power of 90% and a Significance
+    of 5% and would require a total of 16,814 participants (8,407 participants for test and control groups). If we plan
+    to expose 500 customers to experiment a day, the test would take us approximately 33 days to complete.
+</p>
+<h2 style="padding-top: 20px;">Test Your Data</h2>
+<p class="space">
+    Generally, a hypothesis test can be broken down into four steps.
+<ul class="center">
+    <li>
+        <b>Identify the Null Hypothesis</b> - The null hypothesis (signified by H<sub>0</sub>) states that the treatment
+        being analyzed has had no effect on the properties of the population. In our example, the null hypothesis is
+        that changing the button color from red to black doesn't change the click rate.
+    </li>
+    <li>
+        <b>Identify the Alternative Hypothesis</b> - The alternative hypothesis (signified by H<sub>1</sub>) states
+        that the treatment has had an effect on the population. Importantly, we need to determine whether or not we want
+        to determine the directionality of the difference. If we are only interested in detecting a difference,
+        H<sub>1</sub>: &#956 &#8800 0, we conduct a two-tailed hypothesis test. In this case, the alternative hypothesis
+        states that the difference between the two samples does not equal zero. However, if we are intrested in
+        determining directionality, H<sub>0</sub>: &#956 > 0 or H<sub>0</sub>: &#956 &#60 0, we conduct a
+        one-tailedhypothesis test. In this case the alternative hypothesis states that the effect of the treatment is
+        greater than or less than zero.
+    </li>
+    <li>
+        <b>Select the correct test</b> - Hypothesis test assume the data being tested represents independent
+        observations, the variance within each group being tested is similar, and the data follows a normal
+        distribution. If data does not meet the variance or normality assumptions a nonparametric test can be used. The
+        flowchart below can be used to help identify what hypothesis test is best for you.
+        <img src="../static/hypothesis_decision_tree.png"
+            style="display: block; margin-left: auto; margin-right: auto; width: 100%; padding-top: 20px; padding-bottom: 20px"></img>
+
+    </li>
+    <li>
+        <b>Draw a conclusion</b> - All hypothesis test calculate a p-value that estimates the probability of obtaining
+        the effect observed in tested samples. In general, lower p-values represent stronger evidence against the null
+        hypothesis. P-values are compared to significance levels to determine whether your data favor the null or
+        alternative hypothesis. Consider an example in which we design an experiment to test for a 5% significance level
+        and our resulting p-value is .002. Since our p-value is less than our significance level (0.002 < .0.5) we
+            reject the null hypothesis and conclude that the effect of the treatment is statistically significant. </li>
+</ul>
+</p>
+{% endblock %}

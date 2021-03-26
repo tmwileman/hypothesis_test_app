@@ -1,0 +1,511 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<div>
+    <h1>
+        Red Hat A/B Results Assessment
+    </h1>
+</div>
+
+<div>
+    <p class="content">The goal of any hypothesis test is to determine whether or not a difference between observations
+        is due to chance (random sampling varibility) or rare enought to be attributed to a factor of interest
+        (statistically significant result).
+        Achieving this goal requires the right type of hypothesis test. Variations combinations of data types,
+        distributions, and variances require particular tests to achieve a reliable result.</p>
+
+    <p class="content">The Red Hat A/B Results Assessment tool is intended to help you pick the right hypothesis test.
+        The following explanations and questions are designed to get you to the right
+</div>
+<hr>
+<div>
+    <h2>Step 1</h2>
+    <h3>Are you testing population mean or proportion</h3>
+    <p class="content">Hypothesis tests can be broken down in to two broad categories; those that test population
+        proportion and those that test population mean.</p>
+</div>
+<div>
+    <table class="tests">
+        <colgroup>
+            <col span="1" style="width:50%">
+            <col span="1" style="width:50%">
+        </colgroup>
+        <tbody>
+            <tr>
+                <th>
+                    <h3>
+                        Proportion Tests
+                    </h3>
+                </th>
+                <th>
+                    <h3>
+                        Mean Tests
+                    </h3>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <p class="content">
+                        Tests of proportion examine differences in categorical data. For example, are Red Hat customers
+                        more
+                        likely to
+                        click on a red button or a black button?
+                    </p>
+                    <div class="container">
+                        <div class="child">
+                            <form method="POST">
+                                <button class="btn-secondary btn-lg" style="width: 45%">Click Here To Learn
+                                    More About Tests of
+                                    Proportion</button>
+                                <button class="btn-dark btn-lg" style="width: 45%">Click Here To Learn More
+                                    About Tests of
+                                    Proportion</button>
+                            </form>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <p class="content">
+                        Tests of means examine differences in numerical data. For example, do Red Hat customers with a
+                        Technical Account Manager (TAM) rate Red Hat higher on a scale of 1-10 than those without a TAM?
+                    </p>
+                    <div class="slidecontainer">
+                        <input type="range" min="1" max="10" value="5" class="slider" id="myRange">
+                        <p>Rate Red Hat: <span id="demo"></span></p>
+                    </div>
+                    <form method="POST">
+                        <button class="btn-secondary btn-lg" style="width: 45%">Submit and Learn
+                            More About Testing Population
+                            Means</button>
+                    </form>
+                    <script>
+                        var slider = document.getElementById("myRange");
+                        var output = document.getElementById("demo");
+                        output.innerHTML = slider.value;
+
+                        slider.oninput = function () {
+                            output.innerHTML = this.value;
+                        }
+                    </script>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="shown" id="prop_mean_question">
+    <p>
+        Are you performing a tests of proportions or a test of means?
+    </p>
+    <table class=" response">
+        <tr>
+            <td style="border-left: none; border-right: none;">
+                <form action="http://ceean-1.gsslab.rdu2.redhat.com:7000/prop_test_analyzer/">
+                    <button id="proportion_button" type="submit" class="btn btn-primary btn-lg">Proportions</button>
+                </form>
+            </td>
+            <td style="border-left: none;">
+                <form method="POST">
+                    <button id="mean_button" onclick="show_div('num_groups_question'); return false" type="submit"
+                        class="btn btn-primary btn-lg">Means</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="hidden" id="num_groups_question">
+    <div>
+        <hr>
+
+        <h2>Step 2</h2>
+        <h3>How many groups are you testing</h3>
+        <p class="content">The number of groups being compared in a hypothesis test is also determines what type of test
+            will be run. We can test whether one group differs from a known historical mean. We can test the liklihood
+            of observing two sample means within the same population. Finally, we can test if any one of three or more
+            sample means differs from a population mean.</p>
+    </div>
+    <div style="margin-top: 20px;">
+        <p>
+            Are you testing one group against a historical mean, two groups, or three or more groups?
+        </p>
+        <table class="response">
+            <tr>
+                <td style="border-left: none; border-right: none;">
+                    <form method="POST">
+                        <button onclick="show_div('one_group_cross_classified_or_not'); return false"
+                            name="testing_one_group" value="one_group_cross_classified_or_not" type="submit"
+                            class="btn btn-primary btn-lg">One Group</button>
+                    </form>
+                </td>
+                <td style="border-left: none; border-right: none">
+                    <form method="POST">
+                        <button onclick="show_div('two_group_dependent_independent'); return false"
+                            name="testing_two_groups" value="testing_two_groups" type="submit"
+                            class="btn btn-primary btn-lg">Two Groups</button>
+                    </form>
+                </td>
+                <td style="border-left: none; border-right: none">
+                    <form method="POST">
+                        <button onclick="show_div('three_group_dependent_independent'); return false"
+                            name="testing_three_groups" value="testing_three_groups" type="submit"
+                            class="btn btn-primary btn-lg">Three or
+                            More</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="hidden" id="one_group_cross_classified_or_not">
+    <div>
+        <hr>
+
+        <h2>Step 3</h2>
+        <h3>Are observations cross-classified?</h3>
+        <p class="content"></p>
+    </div>
+    <div style="margin-top: 40px;">
+        <p>
+            Are observations cross-classified?
+        </p>
+        <table class="response">
+            <tr>
+                <td style="border-left: none; border-right: none;">
+                    <form method="POST">
+                        <button onclick="show_div('get_one_group_cross_classified'); return false"
+                            name="get_one_group_cross_classified" class="btn btn-primary btn-lg">Yes</button>
+                    </form>
+                </td>
+                <td style="border-left: none; border-right: none">
+                    <form method="POST">
+                        <button onclick="show_div('one_group_not_cross_classified'); return false"
+                            name="get_one_group_not_cross_classified" class="btn btn-primary btn-lg">No</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="hidden" id="get_one_group_cross_classified">
+    <div>
+        <hr>
+
+        <h2>Step 3</h2>
+        <h3>Input your data</h3>
+        <p class="content"></p>
+        <table class="response">
+            <tr>
+                <td>
+                    <form method="POST" enctype="multipart/form-data" action="/chi_square_cross_classified">
+                        <input type="file" accept=".csv" name="csvfile">
+                        <button name="one_group_cross_classified" class="btn btn-primary btn-lg">Submit</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="hidden" id="get_one_group_not_cross_classified">
+    <div>
+        <hr>
+
+        <h2>Step 3</h2>
+        <h3>Input your data</h3>
+        <p class="content"></p>
+        <table class="response">
+            <tr>
+                <td>
+                    <form method="POST" enctype="multipart/form-data" action="/chi_square_not_cross_classified">
+                        <input type="file" accept=".csv" name="csvfile">
+                        <button name="one_group_not_cross_classified" class="btn btn-primary btn-lg">Submit</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="hidden" id="two_group_dependent_independent">
+    <div>
+        <hr>
+
+        <h2>Step 3</h2>
+        <h3>Are your measurements dependent or independent</h3>
+        <p class="content">Dependent data consists of paired measurements while independent samples are measurements
+            made on two different subjects. Suppose we were interested in determining if a new product pricing strategy
+            is more effective than the current strategy. If we test the new stragegy on customers that have already been
+            exposed to the current strategy, our data is dependent. However, if we expose one group of customers to only
+            the current strategy and another to only the new strategy, our data is independent.</p>
+        <div class="center" style="margin-top: 40px;">
+            <ul> <b>Independent data meets the following criteria:</b>
+                <li>Subjects in one group cannot be in a second group</li>
+                <li>Subjects in one group cannot influence subjects in another</li>
+                <li>One group cannot influence another group</li>
+            </ul>
+        </div>
+    </div>
+    <div style="margin-top: 40px;">
+        <p>
+            Is your data independent or dependent?
+        </p>
+        <table class="response">
+            <tr>
+                <td style="border-left: none; border-right: none;">
+                    <form method="POST">
+                        <button onclick="show_div('get_two_group_independent_data'); return false"
+                            name="two_group_independent" value="two_group_independent" type="submit"
+                            class="btn btn-primary btn-lg">Independent</button>
+                    </form>
+                </td>
+                <td style="border-left: none; border-right: none">
+                    <form method="POST">
+                        <button onclick="show_div('two_group_dependent_difference_relationship'); return false"
+                            name="two_group_dependent" value="two_group_dependent" type="submit"
+                            class="btn btn-primary btn-lg">Dependent</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="hidden" id="get_two_group_independent_data">
+    <div>
+        <hr>
+
+        <h2>Step 4</h2>
+        <h3>Input your data</h3>
+        <p class="content"></p>
+        <table class="response">
+            <tr>
+                <td>
+                    <form method="POST" enctype="multipart/form-data">
+                        <input type="file" accept=".csv" name="csvfile">
+                        <button name="two_group_independent" value="Submit"
+                            class="btn btn-primary btn-lg">Submit</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="hidden" id="two_group_dependent_difference_relationship">
+    <div>
+        <hr>
+
+        <h2>Step 4</h2>
+        <h3>Are your examining for a relationship or difference between samples</h3>
+        <p class="content"></p>
+    </div>
+    <div style="margin-top: 40px;">
+        <p>
+            Are you looking to see if there is a relationship or difference between your samples?
+        </p>
+        <table class="response">
+            <tr>
+                <td style="border-left: none; border-right: none;">
+                    <form method="POST">
+                        <button onclick="show_div('get_two_group_relationship_data'); return false"
+                            name="two_group_relationship" value="two_group_relationship" type="submit"
+                            class="btn btn-primary btn-lg">Relationship</button>
+                    </form>
+                </td>
+                <td style="border-left: none; border-right: none">
+                    <form method="POST">
+                        <button onclick="show_div('get_two_group_difference_data'); return false"
+                            name="two_group_difference" value="two_group_difference" type="submit"
+                            class="btn btn-primary btn-lg">Difference</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="hidden" id="get_two_group_relationship_data">
+    <div>
+        <hr>
+
+        <h2>Step 5</h2>
+        <h3>Input your data</h3>
+        <p class="content"></p>
+        <table class="response">
+            <tr>
+                <td>
+                    <form method="POST" enctype="multipart/form-data">
+                        <input type="file" accept=".csv" name="csvfile">
+                        <button name="two_group_relationship" class="btn btn-primary btn-lg"
+                            value="Submit">Submit</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="hidden" id="get_two_group_difference_data">
+    <div>
+        <hr>
+
+        <h2>Step 5</h2>
+        <h3>Input your data</h3>
+        <p class="content"></p>
+        <table class="response">
+            <tr>
+                <td>
+                    <form method="POST" enctype="multipart/form-data">
+                        <input type="file" accept=".csv" name="csvfile">
+                        <button name="two_group_relationship" class="btn btn-primary btn-lg"
+                            value="Submit">Submit</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="hidden" id="three_group_dependent_independent">
+    <div>
+        <hr>
+
+        <h2>Step 3</h2>
+        <h3>Are your measurements dependent or independent</h3>
+        <p class="content">Dependent data consists of paired measurements while independent samples are measurements
+            made on two different subjects. Suppose we were interested in determining if a new product pricing strategy
+            is more effective than the current strategy. If we test the new stragegy on customers that have already been
+            exposed to the current strategy, our data is dependent. However, if we expose one group of customers to only
+            the current strategy and another to only the new strategy, our data is independent.</p>
+        <div class="center" style="margin-top: 40px;">
+            <ul> <b>Independent data meets the following criteria:</b>
+                <li>Subjects in one group cannot be in a second group</li>
+                <li>Subjects in one group cannot influence subjects in another</li>
+                <li>One group cannot influence another group</li>
+            </ul>
+        </div>
+    </div>
+    <div style="margin-top: 40px;">
+        <p>
+            Is your data independent or dependent?
+        </p>
+        <table class="response">
+            <tr>
+                <td style="border-left: none; border-right: none;">
+                    <form method="POST">
+                        <button onclick="show_div('two_factors'); return false" name="three_group_independent"
+                            value="three_group_independent" type="submit"
+                            class="btn btn-primary btn-lg">Independent</button>
+                    </form>
+                </td>
+                <td style="border-left: none; border-right: none">
+                    <form method="POST">
+                        <button onclick="show_div('get_three_group_dependent_data'); return false"
+                            name="three_group_dependent" value="three_group_dependent" type="submit"
+                            class="btn btn-primary btn-lg">Dependent</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="hidden" id="get_three_group_dependent_data">
+    <div>
+        <hr>
+
+        <h2>Step 4</h2>
+        <h3>Input your data</h3>
+        <p class="content"></p>
+        <table class="response">
+            <tr>
+                <td>
+                    <form method="POST" enctype="multipart/form-data">
+                        <input type="file" accept=".csv" name="csvfile">
+                        <button name="three_group_repeated_measures" class="btn btn-primary btn-lg"
+                            value="Submit">Submit</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="hidden" id="two_factors">
+    <div>
+        <hr>
+
+        <h2>Step 4</h2>
+        <h3>Are observations classified for two factors</h3>
+        <p class="content"></p>
+    </div>
+    <div style="margin-top: 40px;">
+        <p>
+            Are your observations classified for two factors
+        </p>
+        <table class="response">
+            <tr>
+                <td style="border-left: none; border-right: none;">
+                    <form method="POST">
+                        <button onclick="show_div('get_three_groups_two_factors_data'); return false" name="two_factors"
+                            value="two_factors" type="submit" class="btn btn-primary btn-lg">Yes</button>
+                    </form>
+                </td>
+                <td style="border-left: none; border-right: none">
+                    <form method="POST">
+                        <button onclick="show_div('get_three_groups_one_factor_data'); return false" name="one_factor"
+                            value="one_factor" type="submit" class="btn btn-primary btn-lg">No</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="hidden" id="get_three_groups_two_factors_data">
+    <div>
+        <hr>
+
+        <h2>Step 5</h2>
+        <h3>Input your data</h3>
+        <p class="content"></p>
+        <table class="response">
+            <tr>
+                <td>
+                    <form method="POST" enctype="multipart/form-data">
+                        <input type="file" accept=".csv" name="csvfile">
+                        <button name="three_group_two_factor" class="btn btn-primary btn-lg"
+                            value="Submit">Submit</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="hidden" id="get_three_groups_one_factor_data">
+    <div>
+        <hr>
+
+        <h2>Step 5</h2>
+        <h3>Input your data</h3>
+        <p class="content"></p>
+        <table class="response">
+            <tr>
+                <td>
+                    <form method="POST" enctype="multipart/form-data">
+                        <input type="file" accept=".csv" name="csvfile">
+                        <button name="three_group_one_factor" class="btn btn-primary btn-lg"
+                            value="Submit">Submit</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+{% endblock %}
